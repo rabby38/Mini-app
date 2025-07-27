@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎰 PuParty Style Spin</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive;
+      background: linear-gradient(to bottom, #ffe4e1, #fff);
+      text-align: center;
+    }
+    .header {
+      background: #ff4081;
+      color: #fff;
+      padding: 15px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .balance {
+      background: #ffc107;
+      font-size: 20px;
+      padding: 10px;
+    }
+    .slot-box {
+      margin-top: 30px;
+    }
+    .slot {
+      font-size: 60px;
+      font-weight: bold;
+      color: #ff5722;
+      background: #fff8e1;
+      border: 5px solid #ff9800;
+      width: 120px;
+      height: 120px;
+      line-height: 120px;
+      margin: 0 auto;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .spin-button {
+      margin-top: 25px;
+      padding: 15px 40px;
+      font-size: 24px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .spin-button:active {
+      transform: scale(0.97);
+    }
+    .info {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">🎰 PuParty Spin Game</div>
+  <div class="balance">💰 Coins: <span id="coins">0</span></div>
+
+  <div class="slot-box">
+    <div class="slot" id="slot">?</div>
+    <button class="spin-button" onclick="spin()">SPIN</button>
+    <div class="info" id="message">Spin to win: 1, 2, 4, 6, 8, 9, or 20 coins!</div>
+  </div>
+
+  <script>
+    let coins = 0;
+    const rewards = [1, 2, 4, 6, 8, 9, 20];
+
+    function spin() {
+      const reward = rewards[Math.floor(Math.random() * rewards.length)];
+      coins += reward;
+      document.getElementById("coins").innerText = coins;
+      document.getElementById("slot").innerText = reward;
+      document.getElementById("message").innerText = `🎉 You won ${reward} coins!`;
+    }
+  </script>
+
+</body>
+</html>
